@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trent Sullivan - UGC Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #000000;
+            font-family: 'Arial', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Smoke effect background */
+        .smoke-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(ellipse at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 30%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 40% 80%, rgba(255, 255, 255, 0.12) 0%, transparent 50%);
+            animation: smokeFloat 15s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @keyframes smokeFloat {
+            0%, 100% {
+                opacity: 0.5;
+            }
+            50% {
+                opacity: 0.8;
+            }
+        }
+
+        /* Main content container */
+        .container {
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        /* Content wrapper */
+        .content {
+            text-align: center;
+            max-width: 500px;
+        }
+
+        /* Name styling with border */
+        .name {
+            font-size: 4rem;
+            font-weight: 900;
+            color: #ffffff;
+            border: 3px solid #ffffff;
+            padding: 30px 40px;
+            margin-bottom: 40px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .name:hover {
+            box-shadow: 0 0 50px rgba(255, 255, 255, 0.3);
+            transform: scale(1.02);
+        }
+
+        /* Picture area */
+        .profile-picture {
+            width: 250px;
+            height: 250px;
+            margin: 0 auto 40px;
+            border: 3px solid #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .profile-picture:hover {
+            box-shadow: 0 0 50px rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
+
+        .profile-picture img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-picture.placeholder {
+            font-size: 3rem;
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Social links */
+        .socials {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border: 2px solid #ffffff;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .social-link:hover {
+            background-color: #ffffff;
+            color: #000000;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+        }
+
+        .social-link span {
+            font-size: 0.7rem;
+        }
+
+        /* Responsive design */
+        @media (max-width: 600px) {
+            .name {
+                font-size: 2.5rem;
+                padding: 20px 25px;
+            }
+
+            .profile-picture {
+                width: 200px;
+                height: 200px;
+            }
+
+            .social-link {
+                width: 45px;
+                height: 45px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="smoke-container"></div>
+    
+    <div class="container">
+        <div class="content">
+            <div class="name">Trent Sullivan</div>
+            
+            <div class="profile-picture placeholder">
+                <!-- Replace this with your image -->
+                <img id="profileImg" alt="Trent Sullivan" style="display: none;">
+                <span id="placeholder">📷</span>
+            </div>
+            
+            <div class="socials">
+                <a href="https://instagram.com" class="social-link" title="Instagram">
+                    <span>📷</span>
+                </a>
+                <a href="https://twitter.com" class="social-link" title="Twitter">
+                    <span>𝕏</span>
+                </a>
+                <a href="https://tiktok.com" class="social-link" title="TikTok">
+                    <span>🎵</span>
+                </a>
+                <a href="https://youtube.com" class="social-link" title="YouTube">
+                    <span>▶</span>
+                </a>
+                <a href="mailto:your.email@example.com" class="social-link" title="Email">
+                    <span>✉</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Optional: Load profile picture from URL
+        // Change this to your actual image URL
+        const profileImg = document.getElementById('profileImg');
+        const placeholder = document.getElementById('placeholder');
+        
+        // Uncomment and update with your image URL
+        // profileImg.src = 'your-image-url-here.jpg';
+        // profileImg.style.display = 'block';
+        // placeholder.style.display = 'none';
+    </script>
+</body>
+</html>
